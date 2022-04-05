@@ -30,7 +30,7 @@ type Image = {
 
 export default function Gallery({ images }: { images: Image[] }) {
   return (
-    <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div className="max-w-2xl px-4 py-16 mx-auto sm:py-24 sm:px-6 lg:max-w-7xl lg:px-8">
       <div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
         {images.map((image) => (
           <BlurImage key={image.id} image={image} />
@@ -45,14 +45,14 @@ function BlurImage({ image }: { image: Image }) {
 
   return (
     <a href={image.href} className="group">
-      <div className="aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8">
+      <div className="w-full overflow-hidden bg-gray-200 rounded-lg aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8">
         <Image
           alt=""
           src={image.imageSrc}
           layout="fill"
           objectFit="cover"
           className={cn(
-            'duration-700 ease-in-out group-hover:opacity-75',
+            'duration-500 ease-in-out group-hover:opacity-75',
             isLoading
               ? 'scale-110 blur-2xl grayscale'
               : 'scale-100 blur-0 grayscale-0'
