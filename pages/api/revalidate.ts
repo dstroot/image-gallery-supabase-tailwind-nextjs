@@ -11,10 +11,10 @@ export default async function handler(
 
   try {
     // Regenerate our index route showing the images:
-    // Next.js now exposes a function unstable_revalidate()
+    // Next.js now exposes a function: revalidate()
     // allowing you to revalidate individual pages that use getStaticProps.
     // Works on Vercel hosting.
-    await res.unstable_revalidate('/')
+    await res.revalidate('/')
     return res.json({ revalidated: true })
   } catch (err) {
     // If there was an error, Next.js will continue
